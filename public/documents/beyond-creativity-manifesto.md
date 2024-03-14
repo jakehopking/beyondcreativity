@@ -2,7 +2,7 @@
 
 ## Developing Creative Minds Across Diverse Disciplines: Unlocking Potential for All Our Futures
 
-> This is a living document and is open to editing by the community. You can raise a pull request to modify it and view its version history on the [Beyond Creative repo](https://github.com/jakehopking/beyondcreativity/public/documents/beyond-creativity-manifesto.md) on GitHub.
+> This is a living document and is open to editing by the community. You can raise a pull request to modify it and view its version history on the [Beyond Creative repo](https://github.com/jakehopking/beyondcreativity/blob/main/public/documents/beyond-creativity-manifesto.md) on GitHub.
 
 ## Introduction
 
