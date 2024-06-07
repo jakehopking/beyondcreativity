@@ -50,6 +50,7 @@
     "lint-staged": "15.2.5",
     "prettier": "3.3.0",
     "prettier-plugin-sort-json": "4.0.0",
+    "sass": "1.77.4",
     "typescript": "5.4.5"
   }
 }
