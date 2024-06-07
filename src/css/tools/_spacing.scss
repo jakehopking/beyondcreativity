@@ -1,0 +1,60 @@
+@mixin generateSpacing($map: $spacing, $attribute: 'margin', $prefix: '-') {
+
+  @each $key, $value in $map {
+    
+    &#{$prefix}#{$value} {
+      #{$attribute}: var(--#{unquote($value)});
+    }
+  }
+
+  $newAttribute1: $attribute + '-left';
+  $newAttribute2: $attribute + '-right';
+  @each $key, $value in $map {
+    
+    &-x#{$prefix}#{$value} {
+      #{$newAttribute1}: var(--#{unquote($value)});
+      #{$newAttribute2}: var(--#{unquote($value)});
+    }
+  }
+  
+  $newAttribute1: $attribute + '-top';
+  $newAttribute2: $attribute + '-bottom';
+  @each $key, $value in $map {
+    
+    &-y#{$prefix}#{$value} {
+      #{$newAttribute1}: var(--#{unquote($value)});
+      #{$newAttribute2}: var(--#{unquote($value)});
+    }
+  }
+  
+  $newAttribute: $attribute + '-bottom';
+  @each $key, $value in $map {
+    
+    &-b#{$prefix}#{$value} {
+      #{$newAttribute}: var(--#{unquote($value)});
+    }
+  }
+  $newAttribute: $attribute + '-top';
+  @each $key, $value in $map {
+    
+    &-t#{$prefix}#{$value} {
+      #{$newAttribute}: var(--#{unquote($value)});
+    }
+  }
+  
+  $newAttribute: $attribute + '-left';
+  @each $key, $value in $map {
+    
+    &-l#{$prefix}#{$value} {
+      #{$newAttribute}: var(--#{unquote($value)});
+    }
+  }
+  
+  $newAttribute: $attribute + '-right';
+  @each $key, $value in $map {
+    
+    &-r#{$prefix}#{$value} {
+      #{$newAttribute}: var(--#{unquote($value)});
+    }
+  }
+};

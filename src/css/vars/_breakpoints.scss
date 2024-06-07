@@ -1,0 +1,56 @@
+$bp-min-width-s: 480px;
+$bp-max-width-s: $bp-min-width-s - 1;
+$bp-min-width-m: 768px;
+$bp-max-width-m: $bp-min-width-m - 1;
+$bp-min-width-l: 1024px;
+$bp-max-width-l: $bp-min-width-l - 1;
+$bp-min-width-xl: 1400px;
+$bp-max-width-xl: $bp-min-width-xl - 1;
+$bp-min-width-xxl: 1600px;
+$bp-max-width-xxl: $bp-min-width-xxl - 1;
+
+// :root {} can't be imported into *.modules.scss files,
+// so css var() are in _breakpoints-css.scss
+
+// For use with the './helpers/breakpoint' mixin
+// n    = default behaviour (target breakpoints at and above this)
+// n_lt = target breakpoints less than this
+// n_o  = target only this breakpoint range
+$bc-global-breakpoints: (
+  // Small devices (landscape phones: >=480px)
+  sm: 'screen and (min-width: #{$bp-min-width-s})',
+  // Extra small devices (portrait phones: <480px)
+  sm_lt: 'screen and (max-width: #{$bp-max-width-s})',
+  // Small devices (landscape phones: >=480px, <768px)
+  sm_o:
+    'screen (min-width: #{$bp-min-width-s}) and (max-width: #{$bp-max-width-m})',
+
+  // Medium devices (tablets: >=768px)
+  md: 'screen and (min-width: #{$bp-min-width-m})',
+  // Small devices (landscape phones: <768px)
+  md_lt: 'screen and (max-width: #{$bp-max-width-m})',
+  // Medium devices (tablets: >=768px, <1024px)
+  md_o:
+    'screen (min-width: #{$bp-min-width-m}) and (max-width: #{$bp-max-width-l})',
+
+  // Large devices (small desktops: >=1024px)
+  lg: 'screen and (min-width: #{$bp-min-width-l})',
+  // Medium devices (tablets: <1024px)
+  lg_lt: 'screen and (max-width: #{$bp-max-width-l})',
+  // Large devices (small desktops: >=1024px, <1400px)
+  lg_o:
+    'screen (min-width: #{$bp-min-width-l}) and (max-width: #{$bp-max-width-xl})',
+
+  // Extra large devices (large desktops: >=1400px)
+  xl: 'screen and (min-width: #{$bp-min-width-xl})',
+  // Large devices (small desktops: <1400px)
+  xl_lt: 'screen and (max-width: #{$bp-max-width-xl})',
+  // Extra devices (large desktops: >=1200px, <1400px)
+  xl_o:
+    'screen (min-width: #{$bp-min-width-xl}) and (max-width: #{$bp-max-width-xxl})',
+
+  // XX large devices (extra large desktops: >=1600px)
+  xxl: 'screen and (min-width: #{$bp-min-width-xxl})',
+  // Extra Large devices (large desktops: <1400px)
+  xxl_lt: 'screen and (max-width: #{$bp-max-width-xxl})'
+);

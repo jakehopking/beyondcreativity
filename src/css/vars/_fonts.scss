@@ -1,0 +1,156 @@
+@import '../tools';
+
+/* @link https://utopia.fyi/type/calculator/?c=320,18,1.125,1440,18.5,1.25,7,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+//  Note: the browser's rendered sizes differ from the values output by the calculator, so need to tweaked to find the best match.
+// The difference is also larger when using clamp vs the verbose option from the calculator.
+
+:root {
+  // 18px 1.125 @ 320px, 18.5px 1.25 @ 1440px
+  // --font-size--5: clamp(0.38rem, calc(0.69rem + -0.35vw), 0.62rem);
+  // --font-size--4: clamp(0.47rem, calc(0.77rem + -0.33vw), 0.70rem);
+  // --font-size--3: clamp(0.59rem, calc(0.85rem + -0.28vw), 0.79rem);
+  // --font-size--2: clamp(0.74rem, calc(0.93rem + -0.21vw), 0.89rem);
+  // --font-size--1: clamp(0.93rem, calc(1.02rem + -0.11vw), 1.00rem);
+  // --font-size-0: clamp(1.13rem, calc(1.12rem + 0.04vw), 1.16rem);
+  // --font-size-1: clamp(1.27rem, calc(1.21rem + 0.26vw), 1.45rem);
+  // --font-size-2: clamp(1.42rem, calc(1.31rem + 0.55vw), 1.81rem);
+  // --font-size-3: clamp(1.60rem, calc(1.41rem + 0.94vw), 2.26rem);
+  // --font-size-4: clamp(1.80rem, calc(1.51rem + 1.46vw), 2.82rem);
+  // --font-size-5: clamp(2.03rem, calc(1.60rem + 2.14vw), 3.53rem);
+  // --font-size-6: clamp(2.28rem, calc(1.67rem + 3.04vw), 4.41rem);
+  // --font-size-7: clamp(2.57rem, calc(1.72rem + 4.21vw), 5.51rem);
+
+  // 17px 1.125 @ 320px, 17px 1.25 @ 1440px
+  // Will need to adjust this in conjunction with spacing vars and 
+  // `--page-max-width` to achieve the same visual appearance as the 18px version.
+
+  // --font-size--5: clamp(0.35rem, calc(0.66rem + -0.34vw), 0.59rem);
+  // --font-size--4: clamp(0.44rem, calc(0.73rem + -0.33vw), 0.66rem);
+  // --font-size--3: clamp(0.54rem, calc(0.80rem + -0.29vw), 0.75rem);
+  // --font-size--2: clamp(0.68rem, calc(0.88rem + -0.23vw), 0.84rem);
+  // --font-size--1: clamp(0.85rem, calc(0.97rem + -0.13vw), 0.94rem);
+  // --font-size-0: clamp(1.06rem, calc(1.06rem + 0.00vw), 1.06rem);
+  // --font-size-1: clamp(1.20rem, calc(1.16rem + 0.19vw), 1.33rem);
+  // --font-size-2: clamp(1.35rem, calc(1.26rem + 0.45vw), 1.66rem);
+  // --font-size-3: clamp(1.51rem, calc(1.35rem + 0.80vw), 2.08rem);
+  // --font-size-4: clamp(1.70rem, calc(1.45rem + 1.27vw), 2.59rem);
+  // --font-size-5: clamp(1.91rem, calc(1.53rem + 1.90vw), 3.24rem);
+  // --font-size-6: clamp(2.15rem, calc(1.61rem + 2.71vw), 4.05rem);
+  // --font-size-7: clamp(2.42rem, calc(1.67rem + 3.78vw), 5.07rem);
+  
+  // 17px 1.125 @ 320px, 18px 1.25 @ 1440px
+  // https://utopia.fyi/type/calculator/?c=320,17,1.125,1440,18,1.25,10,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+  --font-size--5: clamp(0.37rem, calc(0.65rem + -0.32vw), 0.59rem);
+  --font-size--4: clamp(0.46rem, calc(0.72rem + -0.29vw), 0.66rem);
+  --font-size--3: clamp(0.58rem, calc(0.79rem + -0.24vw), 0.75rem);
+  --font-size--2: clamp(0.72rem, calc(0.87rem + -0.17vw), 0.84rem);
+  --font-size--1: clamp(0.90rem, calc(0.96rem + -0.06vw), 0.94rem);
+  --font-size-0: clamp(1.06rem, calc(1.04rem + 0.09vw), 1.13rem);
+  --font-size-1: clamp(1.20rem, calc(1.14rem + 0.30vw), 1.41rem);
+  --font-size-2: clamp(1.35rem, calc(1.23rem + 0.59vw), 1.76rem);
+  --font-size-3: clamp(1.51rem, calc(1.32rem + 0.98vw), 2.20rem);
+  --font-size-4: clamp(1.70rem, calc(1.40rem + 1.49vw), 2.75rem);
+  --font-size-5: clamp(1.91rem, calc(1.48rem + 2.17vw), 3.43rem);
+  --font-size-6: clamp(2.15rem, calc(1.54rem + 3.05vw), 4.29rem);
+  --font-size-7: clamp(2.42rem, calc(1.58rem + 4.20vw), 5.36rem);
+  --font-size-8: clamp(2.73rem, calc(1.59rem + 5.68vw), 6.71rem);
+  --font-size-9: clamp(3.07rem, calc(1.55rem + 7.59vw), 8.38rem);
+  --font-size-10: clamp(3.45rem, calc(1.44rem + 10.04vw), 10.48rem);
+
+
+  --font-family-salome: 'Salome';
+  --font-family-cassannet-plus: 'Cassannet Plus';
+  --font-family-silka: 'Silka';
+  --font-family-silka-mono: 'Silka Mono';
+  --font-family-system-fallbacks: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell, helvetica neue, sans-serif;
+  --font-family-noto-sans-japanese: 'Noto Sans Japanese', 'Hiragana Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック' , '游ゴシック体' , YuGothic , 'Yu Gothic', 'ＭＳ ゴシック' , 'MS Gothic', sans-serif;
+
+
+  --font-family-brand: var(--font-family-cassannet-plus);
+  --font-family-heading: var(--font-family-salome);
+  --font-family-copy: var(--font-family-silka);
+  --font-family-mono: var(--font-family-silka-mono);
+
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+  --font-weight-ultra: 900;
+
+  --text-align-left: left;
+  --text-align-center: center;
+  --text-align-right: right;
+  --text-align-justify: justify;
+}
+
+$fontFamily: (
+  fontFamilyBrand: "font-family-brand",
+  fontFamilyCopy: "font-family-copy",
+  fontFamilyHeading: "font-family-heading",
+  fontFamilyMono: "font-family-mono",
+  fontFamilyCassannetPlus: "font-family-cassannet-plus",
+  fontFamilyNotoSansJapanese: "font-family-noto-sans-japanese",
+  fontFamilySalome: "font-family-salome",
+  fontFamilySilka: "font-family-silka",
+  fontFamilySilkaMono: "font-family-silka-mono",
+  fontFamilySystemFallbacks: "font-family-system-fallbacks",
+);
+
+$fontWeight: (
+  fontWeight100thin: 'font-weight-thin',
+  fontWeight200xLight: 'font-weight-extra-light',
+  fontWeight300light: 'font-weight-light',
+  fontWeight400regular: 'font-weight-regular',
+  fontWeight500medium: 'font-weight-medium',
+  fontWeight600sBold: 'font-weight-semi-bold',
+  fontWeight700bold: 'font-weight-bold',
+  fontWeight800black: 'font-weight-black',
+);
+
+$fontSize: (
+  fontSize8: 'font-size-8',
+  fontSize7: 'font-size-7',
+  fontSize6: 'font-size-6',
+  fontSize5: 'font-size-5',
+  fontSize4: 'font-size-4',
+  fontSize3: 'font-size-3',
+  fontSize2: 'font-size-2',
+  fontSize1: 'font-size-1',
+  fontSize0: 'font-size-0',
+  fontSizeMinus1: 'font-size--1',
+  fontSizeMinus2: 'font-size--2',
+  fontSizeMinus3: 'font-size--3',
+  fontSizeMinus4: 'font-size--4',
+  fontSizeMinus5: 'font-size--5',
+);
+
+$textAlign: (
+  textAlignLeft: 'text-align-left',
+  textAlignCenter: 'text-align-center',
+  textAlignRight: 'text-align-right',
+  textAlignJustify: 'text-align-justify',
+);
+
+.u {
+  // .u-font-family-copy { font-family: var(--font-family-copy); }
+  @include generatePropertyClasses($map: $fontFamily, $property: 'font-family');
+}
+
+.u {
+  // .u-font-weight-thin { font-weight: var(--font-weight-thin); }
+  @include generatePropertyClasses($map: $fontWeight, $property: 'font-weight');
+}
+
+.u {
+  // .u-font-size-2 { font-size: var(--font-size-2); }
+  @include generatePropertyClasses($map: $fontSize, $property: 'font-size');
+}
+
+.u {
+  // .u-text-align-center { text-align: var(--text-align-left); }
+  @include generatePropertyClasses($map: $textAlign, $property: 'text-align');
+}

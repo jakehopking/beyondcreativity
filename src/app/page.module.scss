@@ -1,28 +1,11 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  position: relative;
 }
 
 .description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
-}
-
-.description a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+  padding: var(--space-s) var(--space-l);
+  a {
+  }
 }
 
 .description p {
@@ -34,20 +17,16 @@
   border-radius: var(--border-radius);
 }
 
-.code {
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: repeat(2, minmax(50%, auto));
   width: var(--max-width);
   max-width: 100%;
 }
 
 .card {
-  padding: 1rem 1.2rem;
+  padding: var(--space-s) var(--space-l);
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
@@ -61,7 +40,8 @@
 
 .card h2 {
   font-weight: 600;
-  margin-bottom: 0.7rem;
+  margin: 0;
+  margin-bottom: var(--space-2xs);
 }
 
 .card p {
@@ -69,18 +49,14 @@
   opacity: 0.6;
   font-size: 0.9rem;
   line-height: 1.5;
-  max-width: 30ch;
+  max-width: 40ch;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.logoContainer {
   position: relative;
-  padding: 4rem 0;
 }
 
-.center::before {
+.logoContainer::before {
   background: var(--secondary-glow);
   border-radius: 50%;
   width: 480px;
@@ -88,25 +64,45 @@
   margin-left: -400px;
 }
 
-.center::after {
+.logoContainer::after {
   background: var(--primary-glow);
   width: 240px;
   height: 180px;
-  z-index: -1;
+  z-index: 0;
 }
 
-.center::before,
-.center::after {
+.logoContainer::before,
+.logoContainer::after {
   content: '';
-  left: 50%;
+  left: -10%;
   position: absolute;
-  filter: blur(45px);
+  filter: blur(85px);
   transform: translateZ(0);
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  // min-width: 320px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .logo {
   position: relative;
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+  display: inline-flex;
+  > svg {
+    height: 100%;
+    /* this is needed for Safari when zoomed out (90%), then the bottom will be cut off */
+    overflow: visible;
+  } 
 }
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -210,13 +206,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
-  }
 
-  .logo {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
-  }
+  // Would need to inline the SVG for this to work
+  // .logo .cls-1 {
+  //   filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  // }
 }
 
 @keyframes rotate {
