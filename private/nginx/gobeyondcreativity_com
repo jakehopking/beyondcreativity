@@ -1,3 +1,17 @@
+# Redirect all www requests to the non-www subdomain
+server {
+    server_name www.gobeyondcreativity.com;
+    return 301 $scheme://gobeyondcreativity.com$request_uri;    
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/www.gobeyondcreativity.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/www.gobeyondcreativity.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
 # Main server block
 server {
     server_name gobeyondcreativity.com;
@@ -62,6 +76,15 @@ server {
     
     # max file upload size
     client_max_body_size 64M;
+
+    listen 80; # managed by Certbot
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/gobeyondcreativity.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/gobeyondcreativity.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
 }
 
 # Redirect http to https (by Certbot)
@@ -127,4 +150,14 @@ map $status $status_text {
     510 'Not Extended';
     511 'Network Authentication Required';
     default 'Something is wrong';
+}
+
+server {
+    if ($host = www.gobeyondcreativity.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    server_name www.gobeyondcreativity.com;
+    listen 80;
+    return 404; # managed by Certbot
 }
