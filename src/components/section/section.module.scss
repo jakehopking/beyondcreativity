@@ -1,0 +1,102 @@
+@import '../../css/tools';
+@import '../../css/utilities';
+
+.section-grid {
+  --gutter: var(--page-gutter);
+  position: relative;
+  display: grid;
+  grid-template-columns: 
+    [gutter-start] var(--gutter) [content-start] auto [content-end] var(--gutter) [gutter-end];
+  grid-template-rows: auto;
+  grid-template-areas: "gutter-start content gutter-end";
+
+  .content {
+    position: relative;
+    grid-area: content;
+    display: flex;
+    justify-content: var(--justify, inherit);
+  }
+
+  &.bleed {
+    .content {
+      grid-column: gutter;
+    }
+  }
+}
+
+.section-wrapper {
+  position: relative;
+  display: flex;
+  margin-inline: var(--page-gutter);
+  justify-content: var(--justify, inherit);
+
+  &.bleed {
+    margin-inline: 0;
+  }
+}
+
+.section-image {
+  --gap: var(--page-gutter);
+  position: relative;
+  display: flex;
+  margin-inline: var(--page-gutter);
+
+  &.bleed {
+    margin-inline: 0;
+  }
+
+  &.gap + &.gap {
+    margin-top: var(--gap);
+  }
+  &.gap-s {
+    --gap: var(--space-s);
+  }
+  &.gap-l {
+    --gap: var(--space-l);
+  }
+  &.gap-xl {
+    --gap: var(--space-xl);
+  }
+}
+
+.grid {
+  --grid-gap: var(--base-spacing);
+  --grid-flow: row;
+  --grid-cols: 12;
+  --animation-duration: var(--global-animation-duration);
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  grid-gap: var(--grid-gap);
+  align-items: start;
+  grid-auto-flow: var(--grid-flow);
+
+  &--collapse {
+    --grid-gap: 0;
+  }
+
+  &--compact {
+    --grid-gap: var(--space-xs);
+  }
+
+  &--sparse {
+    --grid-gap: var(--space-xl);
+  }
+
+  &--flow-dense {
+    --grid-flow: row dense;
+  }
+
+  &--cols-24 {
+    --grid-cols: 24;
+  }
+
+  &__item {
+    --span: 12;
+    @include breakpoint('md') {
+      --span: calc(var(--grid-cols) / 4);
+    }
+    grid-column: span var(--span, 3);
+    transition: height, width, var(--animation-duration) ease;
+  }
+}

@@ -1,0 +1,18 @@
+/** 
+We need to import the @breakpoint mixin into modules. Unfortunately this
+isn't possible where imports contain :root {} definitions therefore they 
+are defined here for now 
+*/
+/* Breakpoints */
+:root {
+  --bp-max-width-s: #{$bp-max-width-s};
+  --bp-max-width-m: #{$bp-max-width-m};
+  --bp-max-width-l: #{$bp-max-width-l};
+  --bp-max-width-xl: #{$bp-max-width-xl};
+  --bp-max-width-xxl: #{$bp-max-width-xxl};
+  --bp-min-width-s: #{$bp-min-width-s};
+  --bp-min-width-m: #{$bp-min-width-m};
+  --bp-min-width-l: #{$bp-min-width-l};
+  --bp-min-width-xl: #{$bp-min-width-xl};
+  --bp-min-width-xxl: #{$bp-min-width-xxl};
+}

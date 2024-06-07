@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: /email/
+Disallow: /files/
+Disallow: /admin/
+Disallow: /resources
+
+Sitemap: https://elkliandhart.com/sitemap.xml
+crawl-delay: 10

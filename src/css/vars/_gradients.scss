@@ -1,0 +1,73 @@
+.u-gradient {
+  --gradient-angle: -44deg;
+  --gradient-start-point: 0%;
+  --gradient-end-point: 100%;
+  --gradient-color-1: black;
+  --gradient-color-2: white;
+
+  --gradient-two-colors: 
+    linear-gradient(var(--gradient-angle),
+    var(--gradient-color-1) var(--gradient-start-point),
+    var(--gradient-color-2) var(--gradient-end-point))
+  ;
+
+  background-image: var(--gradient-two-colors);
+}
+
+.u-gradient-two-colors-purple {
+  --gradient-color-1: #321FAF;
+  --gradient-color-2: #E46BFF;
+}
+
+.u-gradient-two-colors-peach {
+  --gradient-color-1: #EE71B8;
+  --gradient-color-2: #FFCA99;
+}
+
+.u-gradient-two-colors-aqua {
+  --gradient-color-1: #00B9D0;
+  --gradient-color-2: #71E7F9;
+  --gradient-end-point: 77%;
+}
+
+.fade-overlay {
+  --from: var(--color-content-bg, white);
+  --to: transparent;
+  --deg: 180deg;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(var(--deg), var(--from), var(--to));
+    grid-area: 1 / 1 / -1 / -1; // when used in grid, this will fill the entire area
+  }
+
+  &.up {
+    --deg: 0deg;
+  }
+  &.down {
+    --deg: 180deg;
+  }
+  &.left {
+    --deg: 90deg;
+  }
+  &.right {
+    --deg: 270deg;
+  }
+
+  &.up-left {
+    --deg: 45deg;
+  }
+  &.up-right {
+    --deg: 300deg;
+  }
+
+  &.from-dark-a20 {
+    --from: var(--color-black-a20);
+  }
+  &.from-dark-a30 {
+    --from: var(--color-black-a30);
+  }
+}

@@ -1,0 +1,15 @@
+.footer {
+  padding-block: var(--space-xs);
+  margin: 0 auto;
+  background-color: var(--color-content-bg);
+  max-width: var(--page-max-width);
+  min-width: var(--page-min-width);
+  p {
+    font-size: var(--font-size--2);
+    line-height: 1.4;
+    opacity: 0.6;
+    strong {
+      font-weight: var(--font-weight-semi-bold);
+    }
+  }
+}

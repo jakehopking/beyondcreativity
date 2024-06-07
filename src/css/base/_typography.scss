@@ -1,0 +1,171 @@
+h1, h2, h3, h4, h5, h6, p, q  {
+  margin-block: 0.75em 0.25em;
+}
+h1, h2, h3, h4, h5, h6  {
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: var(--font-size-6);
+}
+
+h2 {
+  font-size: var(--font-size-5);
+}
+
+h3 {
+  font-size: var(--font-size-4);
+}
+
+h4 {
+  font-size: var(--font-size-3);
+}
+
+h5 {
+  font-size: var(--font-size-2);
+}
+
+h6,
+.lead {
+  font-size: var(--font-size-1);
+}
+
+p {
+  font-size: var(--font-size-0);
+}
+
+small {
+  font-size: var(--font-size--1);
+}
+
+em,
+.u-font-style-italic {
+  font-style: italic;
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+%drop-cap {
+  float: left;
+  // Caused alignment issues in iOS Safari, so removed.
+  // padding-block-start: 0.1em; // Required for Firefox
+  margin-inline-end: 0.125em;
+  margin-block: 0;
+  line-height: 0.8em; // Required for Webkit
+  font-family: var(--font-family-heading);
+  font-size: calc(5 * 1em);
+}
+
+.drop-cap::first-letter {
+  @extend %drop-cap;
+}
+
+.drop-cap-first-of-type {
+  > *:first-child:first-letter {
+    @extend %drop-cap;
+  }
+}
+
+// Repeat of richText anchor styles
+.common-link {
+  --link-bg-color-hover: var(--color-secondary);
+  --link-bg-color-active: var(--link-bg-color-hover);
+  --link-color: currentColor;
+  --link-gradient-left: currentColor;
+  --link-gradient-right: currentColor;
+  --background-size: 100% 2px;
+  display: inline-flex;
+  text-decoration: none;
+  color: var(--link-color);
+
+  transition: all var(--global-animation-ease) var(--global-animation-duration-fast);
+  background-image: linear-gradient(120deg, var(--link-gradient-left), var(--link-gradient-right));
+  background-repeat: no-repeat;
+  background-size: var(--background-size);
+  background-position: 0 100%;
+
+  &:hover {
+    --link-color: var(--color-white);
+    --link-gradient-left: var(--link-bg-color-hover);
+    --link-gradient-right: var(--link-bg-color-hover);
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+  
+  &:active {
+    --link-color: var(--color-body-bg);
+    --link-gradient-left: var(--link-bg-color-active);
+    --link-gradient-right: var(--link-bg-color-active);
+  }
+
+  &--thin {
+    --background-size: 100% 1px;
+  }
+}
+
+.hitbox {
+  &::before {
+    position: absolute;
+    content: '';
+    // Causing issues with Safari iOS, so removed.
+    // min-width: 3rem;
+    // min-height: 3rem;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.u-type-orientation-vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+.u-type-orientation-vertical-lr {
+  writing-mode: vertical-lr;
+}
+
+.u-type-text-orientation-upright {
+  text-orientation: upright;
+}
+
+.acronym {
+  border-bottom: 1px dashed var(--color-grey-l20);
+  cursor: help;
+}
+
+.general-typography {
+  ul {
+    list-style-type: disc;
+    li {
+      margin-inline-start: 1em;
+    }
+  }
+  
+  ol {
+    list-style-type: decimal;
+    li {
+      margin-inline-start: 1.15em;
+    }
+  }
+  
+  ol, ul {
+    list-style-position: outside;
+    padding-inline-start: 0;
+    margin: 0;
+  
+    li {
+      margin-block-start: 0.5em;
+      margin-block-end: 0.5em;
+      margin-inline-end: 0;
+      padding-inline-start: 0.25em;
+      // &:before {
+      //   content: '—';
+      //   margin-inline-end: 0.5em;
+      // }
+    }
+  }
+}
