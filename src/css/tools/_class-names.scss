@@ -1,0 +1,11 @@
+// .u-bg-color-white-a05 { background-color: var(--color-white-a05); }
+// &-bg {
+//   @include generatePropertyClasses($map: $colors, $property: 'background-color');
+// }
+@mixin generatePropertyClasses($map: $colors, $property: 'color') {
+  @each $key, $value in $map {
+    &-#{$value} {
+      #{$property}: var(--#{unquote($value)});
+    }
+  }
+};
